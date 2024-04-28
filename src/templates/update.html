@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Tareas</title>
+</head>
+<body>
+    <h1>Actualizar Tareas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Completado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>
+                    <form action="{{ url_for('update_task', id=task._id) }}" method="post">
+                        <input type="text" name="title" value="{{ task['title'] }}">
+                        <input type="text" name="description" value="{{ task['description'] }}">
+                        <input type="checkbox" name="done" {% if task['done'] %}checked{% endif %}>
+                        <button type="submit">Actualizar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
