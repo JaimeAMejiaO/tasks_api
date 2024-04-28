@@ -50,20 +50,12 @@ def add_task():
 
 
 # Ruta para eliminar tareas
-@app.route('/delete')
-def view_delete_task():
-    tasks = db['tasks']
-    tasks_list = tasks.find()
-
-    # Cargando la vista para eliminar una tarea
-    return render_template('delete.html', tasks=tasks_list)
-
-@app.route('/delete/<id>')
+@app.route('/<id>')
 def delete_task(id):
     tasks = db['tasks']
     tasks.delete_one({'_id': ObjectId(id)})
 
-    return redirect(url_for('view_delete_task'))
+    return redirect(url_for('home'))
 
 
 
