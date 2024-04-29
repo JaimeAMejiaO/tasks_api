@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 import certifi
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 # Cargar variables de entorno
-load_dotenv()
+# load_dotenv()
 
 # URI de conexión a MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
