@@ -13,8 +13,7 @@ COPY /src/ .
 # Exponiendo el puerto 5000
 EXPOSE 5000
 
-# Variable de entorno de mongo
-ENV MONGO_URI=mongodb+srv://alejandroramirez3:Ar1193099884@distribuidos.monke8z.mongodb.net/?retryWrites=true&w=majority&appName=distribuidos
+# La variable de entorno de mongo_uri la defino en el mismo servidor para evitar que se vea en el repositorio
 
 # Comando para correr la aplicacion
 CMD ["python", "app.py"]
