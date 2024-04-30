@@ -28,7 +28,7 @@
         <div class="row row-cols-1 row-cols-md-4 g-4">
             {% for task in tasks %}
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <div class="card-body" style="position: relative;">
                             <form action="{{ url_for('update_task', id=task._id) }}" method="post">
                                 <div class="mb-3">

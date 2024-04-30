@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "96968b9c-b872-4601-94bf-e5f65f722f34",
+		"name": "Tasks Requests",
+		"description": "Esta documentación muestra los Requets realizados por POSTMAN llamando las funciones de src\\\\services\\\\task.py (API REST)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8069719"
+	},
+	"item": [
+		{
+			"name": "create_task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"title\": \"Tarea 1\",\r\n        \"description\": \"Crear cuenta MongoDBAtlas\"\r\n    },\r\n    {\r\n        \"title\": \"Tarea 2\",\r\n        \"description\": \"Crear conexiones de MongoDB\"\r\n    },\r\n    {\r\n        \"title\": \"Tarea 3\",\r\n        \"description\": \"Crear rutas\"\r\n    },\r\n    {\r\n        \"title\": \"Tarea 4\",\r\n        \"description\": \"Crear funciones\"\r\n    },\r\n    {\r\n        \"title\": \"Tarea 5\",\r\n        \"description\": \"Analizar metodos por POSTMAN\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/task/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"task",
+						""
+					]
+				},
+				"description": "Esté metodo permite crear una tarea, se puede agregar por POSTMAN mandando una lista, es decir \\[{\"title\": \"content\", \"description\":\"any description\"}\\]"
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"task"
+					]
+				},
+				"description": "Este metodo genera una petición de todas las tareas existentes"
+			},
+			"response": []
+		},
+		{
+			"name": "get_task_by_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/task/662d8c9b2946d7c232818f08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"task",
+						"662d8c9b2946d7c232818f08"
+					]
+				},
+				"description": "Este metodo busca la tarea por id y la muestra"
+			},
+			"response": []
+		},
+		{
+			"name": "update_task_by_id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"done\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/task/662d8c9b2946d7c232818f08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"task",
+						"662d8c9b2946d7c232818f08"
+					]
+				},
+				"description": "Este metodo actualiza la tarea a partir del campo que se modificara"
+			},
+			"response": []
+		},
+		{
+			"name": "delete_task_by_id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/task/662d8a9598a4478eb8b2badc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"task",
+						"662d8a9598a4478eb8b2badc"
+					]
+				},
+				"description": "Este metodo eliminar una tarea por id"
+			},
+			"response": []
+		}
+	]
+}

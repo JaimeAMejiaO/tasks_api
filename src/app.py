@@ -1,5 +1,5 @@
 from bson import ObjectId
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, url_for
 import config.mongodb as dbase
 from task import Task
 
@@ -43,19 +43,26 @@ def add_task():
             'done': done
         })
     
-        return redirect(url_for('view_add_task'))
+        return response, 302, {'Location': url_for('view_add_task')}
     else:
         return notFount()
 
 
 
 # Ruta para eliminar tareas
-@app.route('/<id>')
+@app.route('/delete/<id>', methods=['DELETE'])
 def delete_task(id):
     tasks = db['tasks']
     tasks.delete_one({'_id': ObjectId(id)})
 
-    return redirect(url_for('home'))
+    # Retornando una respuesta JSON
+    response_data = {
+        'message': 'Tarea eliminada correctamente'
+    }
+    response = jsonify(response_data)
+
+    # Haciendo una redirección
+    return response, 302, {'Location': url_for('home')}
 
 
 
@@ -69,7 +76,7 @@ def view_update_task():
 
 @app.route('/update/<id>', methods=['POST'])
 def update_task(id):
-    # Conexion a la base de datos
+    # Conexión a la base de datos
     tasks = db['tasks']
 
     # Obteniendo los datos del formulario
@@ -79,14 +86,18 @@ def update_task(id):
 
     # Creando una nueva tarea
     tasks.update_one({'_id': ObjectId(id)}, {'$set': {'title': title, 'description': description, 'done': done}})
-    response = jsonify({
+
+    # Retornando una respuesta JSON
+    response_data = {
         'message': 'Tarea actualizada correctamente',
         'title': title,
         'description': description,
         'done': done
-    })
+    }
+    response = jsonify(response_data)
 
-    return redirect(url_for('view_update_task'))
+    # Haciendo una redirección
+    return response, 302, {'Location': url_for('view_update_task')}
 
 
 
