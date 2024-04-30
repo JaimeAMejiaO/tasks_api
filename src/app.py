@@ -50,7 +50,9 @@ def add_task():
 
 
 # Ruta para eliminar tareas
-@app.route('/delete/<id>', methods=['DELETE'])
+# Si vamos a trabajar con postman o insomnia, debemos cambiar el método a DELETE
+# @app.route('/delete/<id>', methods=['DELETE'])
+@app.route('/delete/<id>')
 def delete_task(id):
     tasks = db['tasks']
     tasks.delete_one({'_id': ObjectId(id)})
