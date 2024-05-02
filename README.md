@@ -83,6 +83,8 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 
 - POST:  Se usa el método de petición HTTP POST cuando se necesitan enviar datos al servidor.
 - GET: Una petición GET solicita al servidor una información o recurso concreto.
+- PUT:
+- DELETE:
 
 ![Captura de pantalla 2024-05-02 105841](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/eb32552e-0988-44b6-ac68-86a638dd7e67)
 
@@ -179,6 +181,13 @@ https://app-distribuidos-yhkxjw6uxq-uc.a.run.app
 
 
 ### REFERENCIAS
+
+Cómo crear una API REST con Python, Flask y MongoDB | CRUD:
+https://www.youtube.com/watch?v=QBx7sLNM0_A
+
+Uso de Comandos para Crear y Configurar un Replica Set:
+https://www.youtube.com/watch?v=We6Xyxs70-M
+
 
 
 
