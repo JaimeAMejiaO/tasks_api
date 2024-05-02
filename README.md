@@ -89,6 +89,10 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 - PUT: Se usa el metodo de HTTP PUT se utiliza para la actualizacion de informacion existente.
 - DELETE: Se usa el metodo de HTTP DELETE para eliminar los datos a través de un servicio web REST.
 
+### CREAR RÉPLICAS EN MONGODB
+
+En el plan gratuito de MongoDB, no se permite la administración completa de réplicas debido a las limitaciones impuestas por este tipo de plan. MongoDB ofrece un clúster M0 gratuito con tres nodos de réplica preestablecidos, pero no es posible agregar, eliminar o modificar los nodos existentes. Aún así, se proporcionan comandos básicos para iniciar y verificar el conjunto de réplicas:
+
 ![Captura de pantalla 2024-05-02 105841](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/eb32552e-0988-44b6-ac68-86a638dd7e67)
 
 
@@ -178,7 +182,6 @@ Lo primero es que en nuestro proyecto en Google Cloud debemos habilitar el servi
 
 ![Captura de pantalla 2024-05-02 111331](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/a7a94c2d-17fd-4974-9637-9d2bca3a76ee)
 
-------------
 
 ### REPOSITORIO
 
