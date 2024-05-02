@@ -88,3 +88,49 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 
 
 
+### LIBRERÍAS USADAS PARA EL DESARROLLO
+
+
+- Librería PyMongo: Es una librería oficial de Python la cual se usa para manejar datos BSON (Binary JSON) que es el formato de serialización utilizado por MongoDB el cual se usa para generar y manipular identificadores únicos en documentos MongoDB.
+
+- Librería Flask: Se usa para crear aplicaciones web, servicios RESTful y otros servicios web. Proporciona los módulos esenciales para el desarrollo web, como el renderizado de plantillas HTML, el manejo de solicitudes HTTP, el enrutamiento, las redirecciones y la gestión de cookies y sesiones. 
+
+- Librería bson: Permite codificar y decodificar documentos en el formato BSON (Binary JSON) utilizado por MongoDB. BSON es una representación binaria de JSON diseñada para una transmisión y almacenamiento más eficientes. Esta librería facilita la serialización y deserialización de datos entre Python y MongoDB.
+
+
+### ¿CÓMO IMPLEMENTAR UN CRUD CON FLASK Y MONGODB?
+
+A continuación se explicarán las líneas de código y su función dentro del mismo.
+
+El primer paso es importar un constructor de flask para hacer levantamiento del servidor web usando flask, al mismo tiempo que se importa la configuración para la base de datos mongo, y inicializando el archivo app.py como el inicio de nuestra aplicación
+
+![Captura de pantalla 2024-05-02 110204](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/6b26ee68-0830-438f-a7f4-055ed3b3c3ec)
+
+
+@app.route(‘/’) define una ruta para la página principal, task_list = tasks.find() se encarga de realizar una consulta a la base de datos para obtener todas las tareas y las almacena en la variable task_list y return render_template('index.html', tasks=tasks_list) se encarga de renderizar la la plantilla ´index.html´ y pasa la lista de tareas tasks_list para que se muestre en la misma
+
+![Captura de pantalla 2024-05-02 110312](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/de824831-061f-43a2-84c3-9337f9653fa9)
+
+@app.route(‘/add’) crea una ruta para la página de agregar tareas, def view_add_task() se encarga de crear la vista para el método de agregar tareas, def add_task() se encarga de obtener los campos del formulario y crear una nueva tarea con una respuesta JSON que contiene un mensaje de éxito y los detalles de la tarea añadida
+
+
+![Captura de pantalla 2024-05-02 110434](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/f4a73efc-51cd-45b5-a9ef-519bc474ae94)
+
+
+@app.route(‘/<id>’) se encarga de crear la ruta para eliminar una tarea, tomando en cuenta el id de la misma, @app.route(‘/update/<id>’) es la encargada de actualizar las tareas mediante el método POST
+
+
+![Captura de pantalla 2024-05-02 110513](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/000c4399-b80e-4eee-ab61-64bb21168e10)
+
+
+![Captura de pantalla 2024-05-02 110605](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/de466f61-a198-4ca0-b657-5baed5dfbce5)
+
+
+@app.errorhandler(404)se encarga de manejar el error 404 que ocurra y el if__name__ == ‘__main__’ se asegura que la aplicación esté siendo ejecutada como el programa principal, si esto es verdadero ejecuta en debug en el puerto 5000
+
+
+![Captura de pantalla 2024-05-02 110654](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/7ce288a0-07b7-43a4-98e8-7a00cfb09d40)
+
+
+Crea la clase tarea, donde se define un método constructor  dandole los campo, y se crea el método toCollection(self) el cual se encarga de de convertir la tarea en un diccionario
+
