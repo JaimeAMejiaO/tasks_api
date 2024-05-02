@@ -129,8 +129,57 @@ El primer paso es importar un constructor de flask para hacer levantamiento del 
 @app.errorhandler(404)se encarga de manejar el error 404 que ocurra y el if__name__ == ‘__main__’ se asegura que la aplicación esté siendo ejecutada como el programa principal, si esto es verdadero ejecuta en debug en el puerto 5000
 
 
+
+
 ![Captura de pantalla 2024-05-02 110654](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/7ce288a0-07b7-43a4-98e8-7a00cfb09d40)
 
 
 Crea la clase tarea, donde se define un método constructor  dandole los campo, y se crea el método toCollection(self) el cual se encarga de de convertir la tarea en un diccionario
+
+![Captura de pantalla 2024-05-02 110814](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/fa972851-340a-4659-9b44-f77e7ce66981)
+
+se encarga de conectar con la base de datos
+
+![Captura de pantalla 2024-05-02 110905](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/838de6d5-a8be-42c9-bdd0-65660a164eed)
+
+
+Son las diferentes vistas creadas para los métodos del proyecto
+
+![Captura de pantalla 2024-05-02 110951](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/8c939507-9d31-4528-b250-96c5262158ae)
+
+
+### ¿CÓMO SE SUBIÓ A GOOGLE CLOUD?
+
+El proceso de subir la aplicación al servidor se llevó a cabo usando Docker e implementando este contenedor en la instancia de un servicio en Cloud Run, que es un servicio de computación serverless totalmente gestionado que forma parte de la plataforma Google Cloud.
+
+#### DOCKER
+
+![Captura de pantalla 2024-05-02 111139](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/ee3c1869-f1de-45b2-82b7-4bcd3d6b5bb5)
+
+Lo que tenemos en nuestro Dockerfile básicamente es que a partir de la imagen base para python 3.12 comenzamos estableciendo el directorio de trabajo en la ruta “/app”, para luego continuar instalando las librerías que usaremos, las cuales tenemos definidas en nuestro archivo “requirements.txt”. Debemos copiar todo el contenido de nuestra carpeta “src” que es donde tenemos todo el código fuente de nuestra aplicación, y así, exponiendo el puerto 5000 (donde usualmente se ejecuta Flask) y ejecutando nuestro archivo “app.py” podremos continuar para hacer el build de nuestra imagen.
+Cabe recalcar que la variable de entorno MONGO_URI para la conexión a nuestra base de datos no la escribimos en el Dockerfile para evitar que queden expuestas las credenciales, esta la configuramos cuando vayamos a implementar el contenedor de nuestra imagen.
+
+#### GOOGLE CLOUD
+
+En cuanto al servidor para implementar nuestro contenedor de Docker hemos elegido usar Google Cloud, ya que gracias a su servicio de Cloud Run nos facilita bastante la implementación	de nuestro contenedor.
+Lo primero es que en nuestro proyecto en Google Cloud debemos habilitar el servicio de Cloud Run, una vez habilitado, lo que hacemos es que nuestra  imagen de Docker debemos subirla al repositorio de imágenes de nuestro proyecto, lo cual se hace a través del Artifact Registry que es un servicio de alojamiento de imágenes brindado por Google Cloud, a partir de aquí, solo hace falta crear nuestro servicio en Cloud Run usando como base la imágen que hemos cargado previamente, ya una vez configurados todos los parámetros de nuestro contenedor a ejecutar (como por ejemplo la variable de entorno MONGO_URI, la cantidad de memoria y de VCPUs) ya quedaría nuestra aplicación disponible en la web.
+
+![Captura de pantalla 2024-05-02 111331](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/a7a94c2d-17fd-4974-9637-9d2bca3a76ee)
+
+#### REPOSITORIO
+
+El proyecto lo trabajamos con github, el repositorio se encuentra en el siguiente enlace:
+
+https://github.com/JaimeAMejiaO/tasks_api
+
+#### Aplicacion
+Aplicacion desplegada:
+
+https://app-distribuidos-yhkxjw6uxq-uc.a.run.app
+
+
+### REFERENCIAS
+
+
+
 
