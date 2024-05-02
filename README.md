@@ -18,3 +18,5 @@ en juego la replicación de datos, un proceso fundamental que implica copiar y a
 Este proceso puede ser único o continuo, dependiendo de las necesidades de la organización. En el último caso, el objetivo es asegurar
 que los datos replicados se actualicen periódicamente y sean consistentes con la fuente original. El propósito principal de la replicación
 de datos es mejorar la disponibilidad y accesibilidad de los datos y la solidez y consistencia del sistema.
+
+![Captura de pantalla 2024-05-02 103359](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/545a0f82-cb05-4f1d-b4dc-ef3535eff3fc)
