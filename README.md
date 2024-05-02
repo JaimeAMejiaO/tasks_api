@@ -25,6 +25,7 @@ de datos es mejorar la disponibilidad y accesibilidad de los datos y la solidez 
 La replicación de datos opera mediante la transferencia de información de un lugar a otro, ya sea entre dos servidores locales en la misma área o en diferentes ubicaciones geográficas, lo cual depende del objetivo de la replicación, si es para asegurar la disponibilidad constante del servicio o un respaldo de la misma. los datos se pueden duplicar a través de varios procedimientos de duplicación; Los tipos de replicación son:
 
 
+
 ### Replicación completa
 
 Implica copiar datos completos desde el origen al sistema de destino, incluida la información nueva, modificada y actual. Sin embargo, esta técnica de replicación de datos requiere más potencia de procesamiento y aumenta la carga en la red. Además, el costo generalmente aumenta a medida que mantener la coherencia se vuelve difícil al copiar grandes volúmenes de datos.
@@ -54,6 +55,8 @@ Limitaciones de tiempo: La ejecución y gestión del proceso de duplicación req
 - Ancho de banda: Mantener la coherencia entre las réplicas de datos puede generar un aumento en el tráfico de la red.
   
 - Datos inconsistentes: Sincronizar las actualizaciones entre entornos distribuidos es complicado, ya que la copia de datos desde múltiples fuentes en diferentes momentos puede resultar en conjuntos de datos que no están sincronizados entre sí. Esta falta de sincronización puede ser temporal o incluso permanente si no se aborda adecuadamente.
+
+------------
 
 # NUESTRO PROYECTO
 
@@ -89,6 +92,7 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 ![Captura de pantalla 2024-05-02 105841](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/eb32552e-0988-44b6-ac68-86a638dd7e67)
 
 
+------------
 
 ### LIBRERÍAS USADAS PARA EL DESARROLLO
 
@@ -99,6 +103,7 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 
 - Librería bson: Permite codificar y decodificar documentos en el formato BSON (Binary JSON) utilizado por MongoDB. BSON es una representación binaria de JSON diseñada para una transmisión y almacenamiento más eficientes. Esta librería facilita la serialización y deserialización de datos entre Python y MongoDB.
 
+------------
 
 ### ¿CÓMO IMPLEMENTAR UN CRUD CON FLASK Y MONGODB?
 
@@ -149,10 +154,13 @@ Son las diferentes vistas creadas para los métodos del proyecto
 
 ![Captura de pantalla 2024-05-02 110951](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/8c939507-9d31-4528-b250-96c5262158ae)
 
+------------
 
 ### ¿CÓMO SE SUBIÓ A GOOGLE CLOUD?
 
 El proceso de subir la aplicación al servidor se llevó a cabo usando Docker e implementando este contenedor en la instancia de un servicio en Cloud Run, que es un servicio de computación serverless totalmente gestionado que forma parte de la plataforma Google Cloud.
+
+------------
 
 #### DOCKER
 
@@ -161,6 +169,8 @@ El proceso de subir la aplicación al servidor se llevó a cabo usando Docker e 
 Lo que tenemos en nuestro Dockerfile básicamente es que a partir de la imagen base para python 3.12 comenzamos estableciendo el directorio de trabajo en la ruta “/app”, para luego continuar instalando las librerías que usaremos, las cuales tenemos definidas en nuestro archivo “requirements.txt”. Debemos copiar todo el contenido de nuestra carpeta “src” que es donde tenemos todo el código fuente de nuestra aplicación, y así, exponiendo el puerto 5000 (donde usualmente se ejecuta Flask) y ejecutando nuestro archivo “app.py” podremos continuar para hacer el build de nuestra imagen.
 Cabe recalcar que la variable de entorno MONGO_URI para la conexión a nuestra base de datos no la escribimos en el Dockerfile para evitar que queden expuestas las credenciales, esta la configuramos cuando vayamos a implementar el contenedor de nuestra imagen.
 
+------------
+
 #### GOOGLE CLOUD
 
 En cuanto al servidor para implementar nuestro contenedor de Docker hemos elegido usar Google Cloud, ya que gracias a su servicio de Cloud Run nos facilita bastante la implementación	de nuestro contenedor.
@@ -168,13 +178,15 @@ Lo primero es que en nuestro proyecto en Google Cloud debemos habilitar el servi
 
 ![Captura de pantalla 2024-05-02 111331](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/a7a94c2d-17fd-4974-9637-9d2bca3a76ee)
 
-#### REPOSITORIO
+------------
+
+### REPOSITORIO
 
 El proyecto lo trabajamos con github, el repositorio se encuentra en el siguiente enlace:
 
 https://github.com/JaimeAMejiaO/tasks_api
 
-#### Aplicacion
+### Aplicacion
 Aplicacion desplegada:
 
 https://app-distribuidos-yhkxjw6uxq-uc.a.run.app
