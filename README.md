@@ -84,6 +84,7 @@ HTTP define un conjunto de métodos de petición para indicar la acción que se 
 - POST:  Se usa el método de petición HTTP POST cuando se necesitan enviar datos al servidor.
 - GET: Una petición GET solicita al servidor una información o recurso concreto.
 
+![Captura de pantalla 2024-05-02 105841](https://github.com/JaimeAMejiaO/tasks_api/assets/131828918/eb32552e-0988-44b6-ac68-86a638dd7e67)
 
 
 
